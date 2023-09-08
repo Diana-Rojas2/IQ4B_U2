@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="txtPromesaResolve">Promesa resuelta</label>
+        <input type="text" id="txtPromesaResolve">
+        <br>
+        <label for="textPromesaReject">Promesa rechazada</label>
+        <input type="text" id="textPromesaReject">
+        <br>
+        <!-- <button id="btnPromesaResolve">Resolve</button>
+        <br>
+        <button id="btnPromesaReject">Reject</button> -->
+        <button id="btnDividir">Dividir</button>
+        <label id="resultado" for=""></label>
+    </div>
+
+    <script>
+        const txtPromesaResolve = document.getElementById("txtPromesaResolve");
+        const txtPromesaReject = document.getElementById("txtPromesaReject");
+
+        /* Explicacion en clase */
+        /* let promesa = new Promise(function (resolve, reject) {
+            setTimeout(() => reject("Promesa correcta"), 3000);
+        });
+        promesa.then(
+            result => txtPromesaResolve.value = result,
+            error => alert("Error")
+        ); */
+
+
+
+        /* Ejercicio 1 06/09/2023 */
+        /* dos botones uno promesa resolve y el otro con la promesa en reject */
+
+        /* document.getElementById("btnPromesaResolve").addEventListener("click", ejecutarPromesaResolve);
+        document.getElementById("btnPromesaReject").addEventListener("click", ejecutarPromesaReject); */
+
+        /* function ejecutarPromesaResolve() {
+            let promesaResolve = new Promise(function (resolve, reject) {
+                setTimeout(() => resolve("Promesa resuelta"), 3000);
+            });
+
+            promesaResolve.then(result => {
+                txtPromesaResolve.value = result;
+            }).catch(error => {
+                alert("Error: " + error);
+            });
+        }
+
+        function ejecutarPromesaReject() {
+            let promesaReject = new Promise(function (resolve, reject) {
+                setTimeout(() => reject("Promesa rechazada"), 3000);
+            });
+
+            promesaReject.then(result => {
+                txtPromesaReject.value = result;
+            }).catch(error => {
+                alert("Error: " + error);
+            });
+        } */
+
+
+
+        /* Ejercicio 2 06/09/2023 */
+        /* divicion de 2 numeros, un numero entre 0 marca error, aparezca un texto con el resultado y si se divide entre 0 el reject mande el error  */
+        const btnDividir = document.getElementById("btnDividir");
+        const txtResultado = document.getElementById("resultado");
+
+        let promesa = new Promise(function (resolve, reject) {
+            let n1 = parseInt(txtPromesaResolve.value);
+            let n2 = parseInt(txtPromesaReject.value);
+            
+        }); 
+
+    </script>
+</body>
+
+</html>
