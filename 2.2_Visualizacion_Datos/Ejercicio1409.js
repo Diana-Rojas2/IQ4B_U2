@@ -12,16 +12,13 @@ const data = {
     labels: arregloLabels,
     datasets: [
         {
-            label: "-Genero-",
+            label: "Género",
             data: arregloValores,
             backgroundColor: [
-                
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 99, 132, 0.2)',
-   
             ],
             borderColor: [
-                
                 'rgb(54, 162, 235)',
                 'rgb(255, 99, 132)'
             ],
@@ -44,20 +41,32 @@ const config = {
 
 const chart = new Chart(canvas, config);
 
+const agregarFilaTabla = (nombre, genero) => {
+    const tabla = document.getElementById("tablaPersonas").getElementsByTagName('tbody')[0];
+    const fila = tabla.insertRow();
+    const celdaNombre = fila.insertCell(0);
+    const celdaGenero = fila.insertCell(1);
+    celdaNombre.innerHTML = nombre;
+    celdaGenero.innerHTML = genero;
+};
+
 const agregarPersona = () => {
     fetch("https://randomuser.me/api/")
       .then(response => response.json())
       .then(data => {
         const persona = document.getElementById("persona");
+        const nombre = `${data.results[0].name.first} ${data.results[0].name.last}`;
+        const genero = data.results[0].gender;
+        
+        agregarFilaTabla(nombre, genero);
+
         persona.innerHTML =
-          `<img src="${data.results[0].picture.medium}" alt="Foto"> <h3>Nombre: ${data.results[0].name.first}, 
-          Apellido: ${data.results[0].name.last}, Genero: ${data.results[0].gender}</h3>`;
+          `<img src="${data.results[0].picture.medium}" alt="Foto"> <h3>Nombre: ${nombre}, 
+          Género: ${genero}</h3>`;
   
-        genero = data.results[0].gender;
-  
-        if (genero == "male") {
+        if (genero === "male") {
           contM++;
-        } else if (genero == "female") {
+        } else if (genero === "female") {
           contF++;
         }
   
@@ -65,7 +74,6 @@ const agregarPersona = () => {
         chart.data.datasets[0].data = arregloValores;
         chart.update();
       });
-  };
-  
-  document.getElementById("btnAgregar").addEventListener("click", agregarPersona);
-  
+};
+
+document.getElementById("btnAgregar").addEventListener("click", agregarPersona);
