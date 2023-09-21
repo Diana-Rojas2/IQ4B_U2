@@ -24,7 +24,7 @@ Get();
  
 });  */
 
-/*                  Ejercicio                    */
+/*                  Ejercicio 20/09/2023                   */
 /* que cada que se pulse mostrar que agregue una card con el nombre de la perona, su foto y otra informacion*/
 
 const agregarPersona = () => {
