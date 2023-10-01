@@ -1,9 +1,17 @@
 using _2._5_WebSockets.Hubs;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
+builder.Services.AddAuthentication(
+    CookieAuthenticationDefaults.AuthenticationScheme
+).AddCookie(opciones =>{
+    opciones.LoginPath = new PathString("/Usuarios/Login");
+    opciones.AccessDeniedPath = new PathString("/Usuarios/NoPermitido");
+});
 
 var app = builder.Build();
 
@@ -20,6 +28,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.UseAuthorization();
 

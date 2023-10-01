@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj": {}
+    "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj": {}
   },
   "projects": {
-    "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj": {
+    "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj",
+        "projectUniqueName": "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj",
         "projectName": "2.5_WebSockets",
-        "projectPath": "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj",
+        "projectPath": "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj",
         "packagesPath": "C:\\Users\\rojas\\.nuget\\packages\\",
-        "outputPath": "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\obj\\",
+        "outputPath": "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rojas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,9 +38,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNet.SignalR.Core": {
+            "Microsoft.AspNetCore.SignalR.Client.Core": {
               "target": "Package",
-              "version": "[2.4.3, )"
+              "version": "[7.0.11, )"
             }
           },
           "imports": [

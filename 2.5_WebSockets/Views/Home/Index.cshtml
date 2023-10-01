@@ -7,12 +7,60 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.11/signalr.js"></script>
+<button type="button" class="btn btn-primary position-relative" id="btnNotification">
+    Aumentar
+    <span id="badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        0
+        <span class="visually-hidden">notificaciones</span>
+    </span>
+</button>
+
+<input type="text" id="txt" class="form-control" placeholder="Ingresa mensaje">
+<button id="btnMandarMensaje" class="btn btn-success">Mandar Mensaje</button>
+
+<div id="contenedor"></div>
+
+<script src="~/js/signalr.js"></script>
 <script>
-    const conexion = new signalR.HubConnectionBuilder().withUrl("/WebSocketServer").build();
-    conexion.start().then(function(e) {
-        console.log("Conexion exitosa"); 
-    }).catch(() =>{
-        console.error("Error al conectarse al servidor de websockets");
+    const btn = document.getElementById("btnMandarMensaje");
+    const contenedor = document.getElementById("contenedor");
+    const txt = document.getElementById("txt");
+
+    const badge = document.getElementById("badge");
+    let cont = 0;
+
+    const conexion = new signalR.HubConnectionBuilder()
+        .withUrl("/WebSocketServer").build();
+
+    conexion.start().then(function (e) {
+        console.log("Conexión exitosa");
+        badge.innerText = "-" + cont;
+    }).catch((e) => {
+        console.error("Error al conectarse al servidor websockets");
     })
+
+    conexion.on("EnviarMensajeTodos", (msj) => {
+        cont ++;
+        badge.innerText = cont.toString();
+        const span = document.createElement("span");
+        span.innerHTML = msj + "<br/>";
+        contenedor.appendChild(span);
+    });
+
+    conexion.on("UsuarioConectado", function (connectionId) {
+        const span = document.createElement("span");
+        span.innerHTML = `Se conecto: ${connectionId} + <br/>`;
+        contenedor.appendChild(span);
+    });
+
+    conexion.on("UsuarioDesconectado", function (connectionId) {
+        const span = document.createElement("span");
+        span.innerHTML = `Se desconecto: ${connectionId} + <br/>`;
+        contenedor.appendChild(span);
+    });
+
+    btn.addEventListener("click", function () {
+        conexion.invoke("EnviarMensaje", txt.value); //EnviarMensaje- Referencia MensajeHub.cs
+    });
+
 </script>
