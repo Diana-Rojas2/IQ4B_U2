@@ -1,10 +1,17 @@
 using _2._5_WebSockets.Hubs;
+using _2._5_WebSockets.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<PeliculasDBContext>(opciones=>{
+    opciones.UseSqlServer(builder.Configuration.GetConnectionString("PeliculasDB"));
+});
+
 builder.Services.AddSignalR();
 builder.Services.AddAuthentication(
     CookieAuthenticationDefaults.AuthenticationScheme

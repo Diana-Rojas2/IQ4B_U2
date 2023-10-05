@@ -15,6 +15,7 @@
     </span>
 </button>
 
+<input type="text" id="user" class="form-control">
 <input type="text" id="txt" class="form-control" placeholder="Ingresa mensaje">
 <button id="btnMandarMensaje" class="btn btn-success">Mandar Mensaje</button>
 
@@ -25,6 +26,7 @@
     const btn = document.getElementById("btnMandarMensaje");
     const contenedor = document.getElementById("contenedor");
     const txt = document.getElementById("txt");
+    const txtUser = document.getElementById("user");
 
     const badge = document.getElementById("badge");
     let cont = 0;
@@ -59,8 +61,15 @@
         contenedor.appendChild(span);
     });
 
+    conexion.on("EnviarMsjAutenticado", (msj) => {
+        const span = document.createElement("span");
+        span.innerHTML = msj + "<br/>";
+        contenedor.appendChild(span);
+    });
+
     btn.addEventListener("click", function () {
-        conexion.invoke("EnviarMensaje", txt.value); //EnviarMensaje- Referencia MensajeHub.cs
+        //conexion.invoke("EnviarMensaje", txt.value); //EnviarMensaje- Referencia MensajeHub.cs
+        conexion.invoke("EnviarMensajeUsuario", txtUser.value, txt.value);
     });
 
 </script>

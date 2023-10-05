@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj": {}
+    "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj": {
+    "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj",
+        "projectUniqueName": "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj",
         "projectName": "2.5_WebSockets",
-        "projectPath": "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\2.5_WebSockets.csproj",
+        "projectPath": "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\2.5_WebSockets.csproj",
         "packagesPath": "C:\\Users\\rojas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rojas\\OneDrive\\Escritorio\\2.5_WebSockets\\obj\\",
+        "outputPath": "C:\\IQ4B\\Unidad_II\\2.5_WebSockets\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rojas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,6 +41,22 @@
             "Microsoft.AspNetCore.SignalR.Client.Core": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
             }
           },
           "imports": [
@@ -62,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

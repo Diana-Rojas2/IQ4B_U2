@@ -1,0 +1,22 @@
+@model _2._5_WebSockets.Models.Usuarios
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Login" method="post">
+    <div class="row">
+        <div class="col-6">
+            <label asp-for="Usuario"></label>
+            <input type="text" asp-for="Usuario">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password">
+        </div>
+    </div>
+    <input type="submit" value="Iniciar Sesion">
+</form>

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Identity.Client;
 namespace _2._5_WebSockets.Hubs
 {
     public class MensajeHub : Hub
@@ -17,12 +18,17 @@ namespace _2._5_WebSockets.Hubs
             await base.OnConnectedAsync(); /* indica cuando alguien se conecta */
         }
 
-        public override async Task OnDisconnectedAsync(Exception? e)
+        public override async Task OnDisconnectedAsync(Exception e)
         {
             await Clients.All.SendAsync("UsuarioDesconectado", Context.ConnectionId);
             await base.OnDisconnectedAsync(e);
         }
 
-        
+        public async Task EnviarMensajeUsuario(string user, string msj){
+            string usuarioAutenticado = Context.UserIdentifier;
+            await Clients.User(user)
+            .SendAsync("EnviarMsjAutenticado", msj+
+            "Enviado de: " + usuarioAutenticado);
+        }
     }
 }
